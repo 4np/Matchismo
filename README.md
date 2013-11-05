@@ -5,14 +5,14 @@ This is the code for the _Matchismo_ project for the Computer Science [CS139p](h
 This code covers the _Matchismo_ project from Lecture 2 and Assignments 1.
 
 ## Versions
-The code has been tagged in different versions to represent the different stages of development and progressing through the Lectures, Slides and Assignments. From top (oldest) to bottom (most recent) the different stages of development are tagged:
+The code has been tagged in different versions to represent the different stages of development and progressing through the Lectures, Slides and Assignments. From bottom (oldest) to top (most recent) the different stages of development are tagged:
 
 Tag              | What
 ---------------- | ---
-Lecture-2        | The code from the end of Lecture 2 (XCode 5)
-Slides-Lecture-1 | Added the code from the slides of Lecture 1 (Class Logistics, Overview of iOS, MVC, Objective C 1)
-Slides-Lecture-2 | Added the code from the slides of Lecture 2 (XCode 5)
 Assignment-1     | Added the code for Assignment 1
+Slides-Lecture-2 | Added the code from the slides of Lecture 2
+Slides-Lecture-1 | Added the code from the slides of Lecture 1 
+Lecture-2        | The code from the end of Lecture 2
 
 This way you can _download_ or _check out_ each stage of development, for example the stage _before_ I add my solution of the assignments, and implement your own solution.
 
