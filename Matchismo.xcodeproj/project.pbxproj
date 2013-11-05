@@ -21,6 +21,7 @@
 		904A851A182971370065C691 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 904A84FC182971370065C691 /* UIKit.framework */; };
 		904A8522182971370065C691 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 904A8520182971370065C691 /* InfoPlist.strings */; };
 		904A8524182971370065C691 /* MatchismoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 904A8523182971370065C691 /* MatchismoTests.m */; };
+		904A852F182983A10065C691 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 904A852E182983A10065C691 /* Card.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		904A851F182971370065C691 /* MatchismoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MatchismoTests-Info.plist"; sourceTree = "<group>"; };
 		904A8521182971370065C691 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		904A8523182971370065C691 /* MatchismoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchismoTests.m; sourceTree = "<group>"; };
+		904A852D182983A10065C691 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Card.h; path = Model/Card.h; sourceTree = "<group>"; };
+		904A852E182983A10065C691 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Card.m; path = Model/Card.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,7 @@
 				904A850A182971370065C691 /* Main.storyboard */,
 				904A850D182971370065C691 /* CardGameViewController.h */,
 				904A850E182971370065C691 /* CardGameViewController.m */,
+				904A8530182983C10065C691 /* Model */,
 				904A8510182971370065C691 /* Images.xcassets */,
 				904A84FF182971370065C691 /* Supporting Files */,
 			);
@@ -150,6 +154,15 @@
 				904A8520182971370065C691 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		904A8530182983C10065C691 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				904A852D182983A10065C691 /* Card.h */,
+				904A852E182983A10065C691 /* Card.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +266,7 @@
 				904A8509182971370065C691 /* CardGameAppDelegate.m in Sources */,
 				904A850F182971370065C691 /* CardGameViewController.m in Sources */,
 				904A8505182971370065C691 /* main.m in Sources */,
+				904A852F182983A10065C691 /* Card.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
