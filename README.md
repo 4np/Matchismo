@@ -8,11 +8,12 @@ This code covers the _Matchismo_ project from Lecture 2 and Assignments 1.
 Note that I have developed this with 4" screen (iPhone 5 & 5S) in mind. Running this on a 3.5" screen or simulator may result in los of UI.
 
 ## Versions
-The code has been tagged in different versions to represent the different stages of development and progressing through the Lectures, Slides and Assignments. From bottom (oldest) to top (most recent) the different stages of development are tagged:
+The code has been tagged in different versions to represent the different stages of development and progressing through the Lectures, Slides and Assignments. The _Lecture_ tags are probably good starting points for starting with assignments. From bottom (oldest) to top (most recent) the different stages of development are tagged:
 
 Tag              | What
 ---------------- | ---
-Assignment-1     | Added the code for Assignment 1
+Lecture-3        | Updated to code with the changes / additions of Lecture 3
+*_Assignment-1_* | Added the code for Assignment 1
 Slides-Lecture-2 | Added the code from the slides of Lecture 2
 Slides-Lecture-1 | Added the code from the slides of Lecture 1 
 Lecture-2        | The code from the end of Lecture 2
