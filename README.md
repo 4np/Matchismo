@@ -4,6 +4,9 @@ This is the code for the _Matchismo_ project for the Computer Science [CS139p](h
 ## Lecture(s)
 This code covers the _Matchismo_ project from Lecture 2 and Assignments 1.
 
+## UI
+Note that I have developed this with 4" screen (iPhone 5 & 5S) in mind. Running this on a 3.5" screen or simulator may result in los of UI.
+
 ## Versions
 The code has been tagged in different versions to represent the different stages of development and progressing through the Lectures, Slides and Assignments. From bottom (oldest) to top (most recent) the different stages of development are tagged:
 
