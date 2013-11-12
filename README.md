@@ -12,11 +12,11 @@ The code has been tagged in different versions to represent the different stages
 
 Tag              | What
 ---------------- | ---
-Lecture-3        | Updated to code with the changes / additions of Lecture 3
-*_Assignment-1_* | Added the code for Assignment 1
-Slides-Lecture-2 | Added the code from the slides of Lecture 2
-Slides-Lecture-1 | Added the code from the slides of Lecture 1 
-Lecture-2        | The code from the end of Lecture 2
+[0.5](https://github.com/4np/Matchismo/releases/tag/0.5)     | Updated to code with the changes / additions of Lecture 3
+[*_0.4_*](https://github.com/4np/Matchismo/releases/tag/0.4) | Added the code for Assignment 1
+[0.3](https://github.com/4np/Matchismo/releases/tag/0.3)     | Added the code from the slides of Lecture 2
+[0.2](https://github.com/4np/Matchismo/releases/tag/0.2)     | Added the code from the slides of Lecture 1 
+[0.1](https://github.com/4np/Matchismo/releases/tag/0.1)     | The code from the end of Lecture 2
 
 This way you can _download_ or _check out_ each stage of development, for example the stage _before_ I add my solution of the assignments, and implement your own solution.
 
