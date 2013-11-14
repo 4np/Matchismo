@@ -16,12 +16,18 @@
     int score = 0;
     
     if ([otherCards count] == 1) {
-        PlayingCard *otherCard = [otherCards firstObject];
+        id card = [otherCards firstObject];
         
-        if ([self.suit isEqualToString:otherCard.suit]) {
-            score = 1;
-        } else if (self.rank == otherCard.rank) {
-            score = 4;
+        // make sure the card really is a PlayingCard instance and not something else
+        if ([card isKindOfClass:[PlayingCard class]]) {
+            // cast it to PlayingCard so the compiler is aware as well
+            PlayingCard *otherCard = (PlayingCard *)card;
+            
+            if ([self.suit isEqualToString:otherCard.suit]) {
+                score = 1;
+            } else if (self.rank == otherCard.rank) {
+                score = 4;
+            }
         }
     }
     
