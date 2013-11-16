@@ -14,6 +14,7 @@
 @property (nonatomic, strong) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *gameTypeControlButton;
 @end
 
 @implementation CardGameViewController
@@ -32,8 +33,14 @@
 
 - (IBAction)reDeal {
     self.game = nil;
+    self.game.gameType = self.gameTypeControlButton.selectedSegmentIndex;
     [self updateUI];
 }
+
+- (IBAction)changeGameType:(UISegmentedControl *)sender {
+    [self reDeal];
+}
+
 
 - (IBAction)touchCardButton:(UIButton *)sender {
     NSUInteger cardIndex = [self.cardButtons indexOfObject:sender];

@@ -10,29 +10,63 @@
 
 @implementation PlayingCard
 
-// override 'match' inherited from Card
-- (int)match:(NSArray *)otherCards
-{
+- (int)match:(PlayingCard *)card with:(PlayingCard *)otherCard {
     int score = 0;
     
-    if ([otherCards count] == 1) {
-        id card = [otherCards firstObject];
-        
-        // make sure the card really is a PlayingCard instance and not something else
-        if ([card isKindOfClass:[PlayingCard class]]) {
-            // cast it to PlayingCard so the compiler is aware as well
-            PlayingCard *otherCard = (PlayingCard *)card;
-            
-            if ([self.suit isEqualToString:otherCard.suit]) {
-                score = 1;
-            } else if (self.rank == otherCard.rank) {
-                score = 4;
-            }
-        }
+    if ([card.suit isEqualToString:otherCard.suit]) {
+        score = 1;
+    } else if (card.rank == otherCard.rank) {
+        score = 4;
     }
     
     return score;
 }
+
+// override 'match' inherited from Card
+- (int)match:(NSArray *)otherCards {
+    int score = 0;
+    int matchCount = 0;
+    
+    NSMutableArray *matchCards = [[NSMutableArray alloc] initWithArray:otherCards];
+    int matchScore = 0;
+    
+    for (Card *card in otherCards) {
+        // make sure card is really a PlayingCard
+        if ([card isKindOfClass:[PlayingCard class]]) {
+            // cast it explicitely to PlayingCard so the compiler is aware as well
+            PlayingCard *otherCard = (PlayingCard *)card;
+            
+            // match other card with ourselve
+            matchScore = [self match:self with:otherCard];
+            if (matchScore) matchCount++;
+            score += matchScore;
+            
+            // remove card from matchCards stack so we won't match multiple times nor ourselve
+            [matchCards removeObject:card];
+            
+            // and match it with the other cards
+            for (Card *matchCard in matchCards) {
+                if ([matchCard isKindOfClass:[PlayingCard class]]) {
+                    PlayingCard *otherMatchCard = (PlayingCard *)matchCard;
+                    matchScore = [self match:otherCard with:otherMatchCard];
+                    if (matchScore) matchCount++;
+                    score += matchScore;
+                }
+            }
+        }
+    }
+
+    return score;
+}
+
+- (BOOL)matchCardSuit:(PlayingCard *)card withOtherCard:(PlayingCard *)otherCard {
+    return ([card.suit isEqualToString:otherCard.suit]) ? YES : NO;
+}
+
+- (BOOL)matchCardRank:(PlayingCard *)card withOtherCard:(PlayingCard *)otherCard {
+    return (card.rank == otherCard.rank) ? YES : NO;
+}
+
 
 - (NSString *)contents
 {

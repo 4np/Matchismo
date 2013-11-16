@@ -55,29 +55,66 @@ static const int COST_TO_CHOOSE = 1;
         if (card.isChosen) {
             card.chosen = NO;
         } else {
-            // match against another card
+            // match against other card(s)
+            NSMutableArray *matchedCards = [[NSMutableArray alloc] init];
+            
             for (Card *otherCard in self.cards) {
                 if (otherCard.isChosen && !otherCard.isMatched) {
-                    int matchScore = [card match:@[otherCard]];
-                    
-                    if (matchScore) {
-                        // increase score
-                        self.score += (matchScore * MATCH_BONUS);
-                        
-                        // mark cards as matched
-                        card.matched = YES;
-                        otherCard.matched = YES;
-                    } else {
-                        // mismath penalty when cards do no match
-                        self.score -= MISMATCH_PENALTY;
-                        
-                        // flip othercard
-                        otherCard.chosen = NO;
-                    }
-
-                    break;
+                    // add matched card to array
+                    [matchedCards addObject:otherCard];
                 }
             }
+            
+            // check if the number of cards for this gametype have been flipped
+            if ([matchedCards count] == (self.gameType + 1)) {
+                // calculate match score
+                int matchScore = [card match:matchedCards];
+                
+                if (matchScore) {
+                    // increase score
+                    self.score += (matchScore * MATCH_BONUS);
+                    
+                    // mark cards as matched
+                    card.matched = YES;
+                    for (Card *otherCard in matchedCards) {
+                        otherCard.matched = YES;
+                    }
+                } else {
+                    // mismatch penalty when cards do not match
+                    self.score -= (MISMATCH_PENALTY * (self.gameType + 1));
+                    
+                    // flip other card(s)
+                    for (Card *otherCard in matchedCards) {
+                        otherCard.chosen = NO;
+                    }
+                }
+            }
+            
+            
+            
+//            for (Card *otherCard in self.cards) {
+//                if (otherCard.isChosen && !otherCard.isMatched) {
+//                    int matchScore = [card match:@[otherCard]];
+//                    
+//                    if (matchScore) {
+//                        // increase score
+//                        self.score += (matchScore * MATCH_BONUS);
+//                        
+//                        // mark cards as matched
+//                        card.matched = YES;
+//                        otherCard.matched = YES;
+//                    } else {
+//                        // mismath penalty when cards do no match
+//                        self.score -= MISMATCH_PENALTY;
+//                        
+//                        // flip othercard
+//                        otherCard.chosen = NO;
+//                    }
+//
+//                    
+//                    break;
+//                }
+//            }
             
             self.score -= COST_TO_CHOOSE;
             card.chosen = YES;
