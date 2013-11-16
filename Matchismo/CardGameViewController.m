@@ -30,6 +30,11 @@
     return nil;
 }
 
+- (IBAction)reDeal {
+    self.game = nil;
+    [self updateUI];
+}
+
 - (IBAction)touchCardButton:(UIButton *)sender {
     NSUInteger cardIndex = [self.cardButtons indexOfObject:sender];
     [self.game chooseCardAtIndex:cardIndex];
