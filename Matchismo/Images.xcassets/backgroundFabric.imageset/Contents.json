@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "cloth-small.png"
+      "filename" : "fabric-small.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "cloth-large.png"
+      "filename" : "fabric-large.png"
     }
   ],
   "info" : {

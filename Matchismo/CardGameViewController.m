@@ -44,7 +44,8 @@
 }
 
 - (IBAction)slideThroughHistory {
-    int element = (int) floorf(self.gameHistorySlider.value);
+    int element = (int) round(self.gameHistorySlider.value);
+    if (element < 0) element = 0;
     
     // set text to display history
     NSArray *history = [[self.game matchHistory] objectAtIndex:element];
