@@ -18,6 +18,8 @@
 - (void)chooseCardAtIndex:(NSUInteger)index;
 - (Card *)cardAtIndex:(NSUInteger)index;
 
+- (NSArray *)matchHistory;
+
 @property (nonatomic, readonly) NSInteger score; // make score read only in public API
 @property (nonatomic) NSInteger gameType; // the type of the game (0=two card, 1=three card)
 @end

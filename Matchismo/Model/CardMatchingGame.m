@@ -11,12 +11,21 @@
 @interface CardMatchingGame()
 @property (nonatomic, readwrite) NSInteger score;    // make score writable in out private API
 @property (nonatomic, strong) NSMutableArray *cards; // of Card
+@property (nonatomic, strong) NSMutableArray *history;
 @end
 
 @implementation CardMatchingGame
 
-- (NSMutableArray *)cards
-{
+- (NSMutableArray *)history {
+    if (!_history) _history = [[NSMutableArray alloc] init];
+    return _history;
+}
+
+- (NSArray *)matchHistory {
+    return self.history;
+}
+
+- (NSMutableArray *)cards {
     if (!_cards) _cards = [[NSMutableArray alloc] init];
     return _cards;
 }
@@ -47,13 +56,14 @@ static const int MISMATCH_PENALTY = 2;  // this is typed so it will show in the 
 static const int MATCH_BONUS = 4;
 static const int COST_TO_CHOOSE = 1;
 
-- (void)chooseCardAtIndex:(NSUInteger)index
-{
+- (void)chooseCardAtIndex:(NSUInteger)index {
     Card *card = [self cardAtIndex:index];
     
     if (!card.isMatched) {
         if (card.isChosen) {
             card.chosen = NO;
+            NSString *feedback = [[NSString alloc] initWithFormat:@"Un-picked %@", card.contents];
+            [self.history addObject:@[feedback]];
         } else {
             // match against other card(s)
             NSMutableArray *matchedCards = [[NSMutableArray alloc] init];
@@ -79,42 +89,26 @@ static const int COST_TO_CHOOSE = 1;
                     for (Card *otherCard in matchedCards) {
                         otherCard.matched = YES;
                     }
+                    
+                    [self.history addObject:[card matchHistory]];
                 } else {
                     // mismatch penalty when cards do not match
-                    self.score -= (MISMATCH_PENALTY * (self.gameType + 1));
+                    long penalty = (MISMATCH_PENALTY * (self.gameType + 1));
+                    self.score -= penalty;
                     
                     // flip other card(s)
                     for (Card *otherCard in matchedCards) {
                         otherCard.chosen = NO;
                     }
+                    
+                    NSString *matchHistory = card.matchHistory.lastObject;
+                    NSString *feedback = [matchHistory stringByAppendingFormat:@" %ld point penalty!", penalty];
+                    [self.history addObject:@[feedback]];
                 }
+            } else {
+                NSString *feedback = [[NSString alloc] initWithFormat:@"Picked %@", card.contents];
+                [self.history addObject:@[feedback]];
             }
-            
-            
-            
-//            for (Card *otherCard in self.cards) {
-//                if (otherCard.isChosen && !otherCard.isMatched) {
-//                    int matchScore = [card match:@[otherCard]];
-//                    
-//                    if (matchScore) {
-//                        // increase score
-//                        self.score += (matchScore * MATCH_BONUS);
-//                        
-//                        // mark cards as matched
-//                        card.matched = YES;
-//                        otherCard.matched = YES;
-//                    } else {
-//                        // mismath penalty when cards do no match
-//                        self.score -= MISMATCH_PENALTY;
-//                        
-//                        // flip othercard
-//                        otherCard.chosen = NO;
-//                    }
-//
-//                    
-//                    break;
-//                }
-//            }
             
             self.score -= COST_TO_CHOOSE;
             card.chosen = YES;
@@ -122,8 +116,7 @@ static const int COST_TO_CHOOSE = 1;
     }
 }
 
-- (Card *)cardAtIndex:(NSUInteger)index
-{
+- (Card *)cardAtIndex:(NSUInteger)index {
     return (index < [self.cards count]) ? self.cards[index] : nil;
 }
 

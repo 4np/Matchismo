@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *gameTypeControlButton;
+@property (weak, nonatomic) IBOutlet UITextView *gameHistory;
 @end
 
 @implementation CardGameViewController
@@ -75,6 +76,10 @@
     
     NSUInteger cardIndex = [self.cardButtons indexOfObject:sender];
     [self.game chooseCardAtIndex:cardIndex];
+    
+    NSArray *lastMatchHistory = [[self.game matchHistory] lastObject];
+    self.gameHistory.text = [lastMatchHistory componentsJoinedByString:@"\n"];
+    
     [self updateUI];
 }
 
