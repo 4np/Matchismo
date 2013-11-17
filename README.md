@@ -7,6 +7,8 @@ This code covers the _Matchismo_ project from Lecture 2 and Assignments 1.
 ## UI
 Note that I have developed this with 4" screen (iPhone 5 & 5S) in mind. Running this on a 3.5" screen or simulator may result in los of UI.
 
+![ScreenShot](https://dl.dropboxusercontent.com/s/iiogu8bkggrw7jk/Matchismo-Assignment-2.png?dl=1&token_hash=AAH_uWo638KJckfD4LBg_z4umcI4BIvz7G5Xphvs8DUjMw)
+
 ## Versions
 The code has been tagged in different versions to represent the different stages of development and progressing through the Lectures, Slides and Assignments. The _Lecture_ tags are probably good starting points for starting with assignments. From bottom (oldest) to top (most recent) the different stages of development are tagged:
 
