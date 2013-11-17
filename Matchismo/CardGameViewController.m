@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *gameTypeControlButton;
 @property (weak, nonatomic) IBOutlet UITextView *gameHistory;
+@property (weak, nonatomic) IBOutlet UISlider *gameHistorySlider;
 @end
 
 @implementation CardGameViewController
@@ -28,6 +29,33 @@
 
 - (Deck *)createDeck { // abstract method
     return nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self updateGameHistorySlider];
+}
+
+- (void)updateGameHistorySlider {
+    int count =  (int) [[self.game matchHistory] count] - 1;
+    self.gameHistorySlider.maximumValue = count;
+    self.gameHistorySlider.value = self.gameHistorySlider.maximumValue;
+    self.gameHistorySlider.enabled = (count > 1) ? YES : NO;
+}
+
+- (IBAction)slideThroughHistory {
+    int element = (int) floorf(self.gameHistorySlider.value);
+    
+    // set text to display history
+    NSArray *history = [[self.game matchHistory] objectAtIndex:element];
+    self.gameHistory.text = [history componentsJoinedByString:@"\n"];
+    
+    // change text color when we're looking at the past
+    if (element == self.gameHistorySlider.maximumValue) {
+        self.gameHistory.textColor = [UIColor blackColor];
+    } else {
+        self.gameHistory.textColor = [UIColor redColor];
+    }
 }
 
 - (IBAction)deal {
@@ -96,6 +124,8 @@
     
     // %ld and explicit typecast to long to support 32bit as well as 64bit
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", (long) self.game.score];
+    
+    [self updateGameHistorySlider];
 }
 
 - (NSString *)titleForCard:(Card *)card {

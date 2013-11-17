@@ -480,8 +480,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmh-bm-OdJ">
-                                <rect key="frame" x="20" y="487" width="280" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmh-bm-OdJ">
+                                <rect key="frame" x="137" y="487" width="163" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -494,10 +494,18 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ubc-CQ-RrO">
+                                <rect key="frame" x="18" y="481" width="118" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="slideThroughHistory" destination="vXZ-lx-hvc" eventType="valueChanged" id="rOg-CK-yPa"/>
+                                </connections>
+                            </slider>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="gameHistory" destination="f50-RN-Mph" id="eOt-z3-nBz"/>
+                        <outlet property="gameHistorySlider" destination="ubc-CQ-RrO" id="MM0-hj-TsX"/>
                         <outlet property="gameTypeControlButton" destination="F55-Wj-hSV" id="5CG-dG-4Wd"/>
                         <outlet property="scoreLabel" destination="gmh-bm-OdJ" id="sct-8d-4fN"/>
                         <outletCollection property="cardButtons" destination="INI-ut-bE2" id="wwQ-yO-hwR"/>
