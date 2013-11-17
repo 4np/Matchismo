@@ -19,19 +19,34 @@
 
 @implementation CardGameViewController
 
-- (CardMatchingGame *)game
-{
+- (CardMatchingGame *)game {
     if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                                           usingDeck:[self createDeck]];
     return _game;
 }
 
-- (Deck *)createDeck // abstract method
-{
+- (Deck *)createDeck { // abstract method
     return nil;
 }
 
-- (IBAction)reDeal {
+- (IBAction)deal {
+    // ask to confirm re-dealing
+    UIAlertView *warning = [[UIAlertView alloc] initWithTitle:@"Re-deal"
+                                                      message:@"Are you sure you want to re-deal the deck and start over?"
+                                                     delegate:self
+                                            cancelButtonTitle:@"No"
+                                            otherButtonTitles:@"Yes", nil];
+    [warning show];
+}
+
+// handle alert view confirmation
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Yes"]) {
+        [self reDeal];
+    }
+}
+
+- (void)reDeal {
     self.game = nil;
     self.game.gameType = self.gameTypeControlButton.selectedSegmentIndex;
     [self updateUI];
@@ -48,8 +63,7 @@
     [self updateUI];
 }
 
-- (void)updateUI
-{
+- (void)updateUI {
     for (UIButton *cardButton in self.cardButtons) {
         NSUInteger cardIndex = [self.cardButtons indexOfObject:cardButton];
         Card *card = [self.game cardAtIndex:cardIndex];
@@ -64,13 +78,11 @@
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", (long) self.game.score];
 }
 
-- (NSString *)titleForCard:(Card *)card
-{
+- (NSString *)titleForCard:(Card *)card {
     return (card.isChosen) ? card.contents : @"";
 }
 
-- (UIImage *)backgroundImageForCard:(Card *)card
-{
+- (UIImage *)backgroundImageForCard:(Card *)card {
     return [UIImage imageNamed:(card.isChosen) ? @"cardFront" : @"cardBack"];
 }
 
