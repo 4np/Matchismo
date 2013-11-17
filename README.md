@@ -12,9 +12,10 @@ The code has been tagged in different versions to represent the different stages
 
 Tag              | What
 ---------------- | ---
+[**_0.7_**](https://github.com/4np/Matchismo/releases/tag/0.7) | Completed Assignment 2
 [0.6](https://github.com/4np/Matchismo/releases/tag/0.6) | Added the improvement from Lecture 4 (Foundation and Attributed Strings)
 [0.5](https://github.com/4np/Matchismo/releases/tag/0.5)     | Updated to code with the changes / additions of Lecture 3
-[*_0.4_*](https://github.com/4np/Matchismo/releases/tag/0.4) | Added the code for Assignment 1
+[**_0.4_**](https://github.com/4np/Matchismo/releases/tag/0.4) | Added the code for Assignment 1
 [0.3](https://github.com/4np/Matchismo/releases/tag/0.3)     | Added the code from the slides of Lecture 2
 [0.2](https://github.com/4np/Matchismo/releases/tag/0.2)     | Added the code from the slides of Lecture 1 
 [0.1](https://github.com/4np/Matchismo/releases/tag/0.1)     | The code from the end of Lecture 2
