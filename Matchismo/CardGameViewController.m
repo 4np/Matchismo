@@ -47,17 +47,32 @@
 }
 
 - (void)reDeal {
+    // enable the game type segmented control
+    self.gameTypeControlButton.enabled = YES;
+    
     self.game = nil;
     self.game.gameType = self.gameTypeControlButton.selectedSegmentIndex;
     [self updateUI];
 }
 
 - (IBAction)changeGameType:(UISegmentedControl *)sender {
+    NSString *cardsToMatch = (self.gameTypeControlButton.selectedSegmentIndex) ? @"three" : @"two";
+    
+    UIAlertView *feedback = [[UIAlertView alloc] initWithTitle:@"Gametype Changed"
+                                                       message:[[NSString alloc] initWithFormat:@"You now have to match %@ cards", cardsToMatch]
+                                                      delegate:nil
+                                             cancelButtonTitle:@"Ok"
+                                             otherButtonTitles:nil];
+    [feedback show];
+    
     [self reDeal];
 }
 
 
 - (IBAction)touchCardButton:(UIButton *)sender {
+    // disable the game type segmented control
+    self.gameTypeControlButton.enabled = NO;
+    
     NSUInteger cardIndex = [self.cardButtons indexOfObject:sender];
     [self.game chooseCardAtIndex:cardIndex];
     [self updateUI];
