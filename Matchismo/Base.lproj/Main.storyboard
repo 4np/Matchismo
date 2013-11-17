@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="billiard cloth.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="yza-ZG-Lnu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroundCloth" translatesAutoresizingMaskIntoConstraints="NO" id="yza-ZG-Lnu">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -551,7 +551,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="billiard cloth.jpg" width="1200" height="1600"/>
+        <image name="backgroundCloth" width="320" height="480"/>
         <image name="cardBack" width="64" height="96"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

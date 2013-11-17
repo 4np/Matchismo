@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		904501B41837A2490034A6B1 /* PlayingCardGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904501B31837A2490034A6B1 /* PlayingCardGameViewController.m */; };
-		904501BA1837D2D30034A6B1 /* billiard cloth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 904501B91837D2D30034A6B1 /* billiard cloth.jpg */; };
 		904A84F9182971370065C691 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 904A84F8182971370065C691 /* Foundation.framework */; };
 		904A84FB182971370065C691 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 904A84FA182971370065C691 /* CoreGraphics.framework */; };
 		904A84FD182971370065C691 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 904A84FC182971370065C691 /* UIKit.framework */; };
@@ -43,7 +42,6 @@
 /* Begin PBXFileReference section */
 		904501B21837A2490034A6B1 /* PlayingCardGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardGameViewController.h; sourceTree = "<group>"; };
 		904501B31837A2490034A6B1 /* PlayingCardGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardGameViewController.m; sourceTree = "<group>"; };
-		904501B91837D2D30034A6B1 /* billiard cloth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "billiard cloth.jpg"; sourceTree = "<group>"; };
 		904A84F5182971370065C691 /* Matchismo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matchismo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		904A84F8182971370065C691 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		904A84FA182971370065C691 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -99,14 +97,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		904501B81837D2BD0034A6B1 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				904501B91837D2D30034A6B1 /* billiard cloth.jpg */,
-			);
-			name = Images;
-			sourceTree = "<group>";
-		};
 		904A84EC182971370065C691 = {
 			isa = PBXGroup;
 			children = (
@@ -157,7 +147,6 @@
 		904A84FF182971370065C691 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				904501B81837D2BD0034A6B1 /* Images */,
 				904A8500182971370065C691 /* Matchismo-Info.plist */,
 				904A8501182971370065C691 /* InfoPlist.strings */,
 				904A8504182971370065C691 /* main.m */,
@@ -280,7 +269,6 @@
 			files = (
 				904A8511182971370065C691 /* Images.xcassets in Resources */,
 				904A8503182971370065C691 /* InfoPlist.strings in Resources */,
-				904501BA1837D2D30034A6B1 /* billiard cloth.jpg in Resources */,
 				904A850C182971370065C691 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

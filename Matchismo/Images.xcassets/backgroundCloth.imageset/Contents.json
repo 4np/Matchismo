@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "card back small.png"
+      "filename" : "cloth-small.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "card back large.png"
+      "filename" : "cloth-large.png"
     }
   ],
   "info" : {
